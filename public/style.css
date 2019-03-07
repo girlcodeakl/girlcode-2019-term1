@@ -32,4 +32,14 @@ h1 {
   border: 2px solid #FFB03B;
   border-radius: 5px;
   color: #468966;
+  text: Helvetica;
+}
+
+input {
+    padding: 5px 0px;
+    background-color:#ef4ace;
+}
+form {
+    display: block;
+    margin-top: 2em;
 }
