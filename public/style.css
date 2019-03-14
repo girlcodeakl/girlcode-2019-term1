@@ -35,6 +35,10 @@ h1 {
   text: Helvetica;
 }
 
+input {    border-width: 3px;
+    border-style: inset;
+  }
+
 input {
     padding: 5px 0px;
     background-color:#ef4ace;

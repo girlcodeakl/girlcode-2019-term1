@@ -22,12 +22,16 @@ app.get('/posts', sendPostsList);
 
 //let a client POST something new
 function saveNewPost(request, response) {
-  console.log(request.body.message); //write it on the command prompt so we can see
+  console.log(request.body.message);
+  console.log(request.body.url); //write it on the command prompt so we can see
   let post= {};
   post.message = request.body.message;
+  post.url = request.body.url;
   posts.push(post);
   response.send("thanks for your message. Press back to add another");
 }
+//let a client POST an image
+
 app.post('/posts', saveNewPost);
 
 //listen for connections on port 3000
