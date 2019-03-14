@@ -34,6 +34,10 @@ h1 {
   color: #468966;
   text: Helvetica;
 }
+.post img {
+  width: 300px;
+  margin: 0 auto;
+}
 
 input {    border-width: 3px;
     border-style: inset;
