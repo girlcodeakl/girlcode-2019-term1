@@ -13,8 +13,9 @@
         <a href="post.html"> P O S T</a>
       </div>
     <h1 class="title">Message Feed</h1>
-    <div class="message-list">
-    </div>
+    <div class="message-list"> </div>
+
+
     <script>
 //Hello! This is the start of the JavaScript.
 
@@ -23,6 +24,7 @@ function displayMessage(post) {
   let postHTML =
   '<div class="post">'
   + '<div class="message">' + post.message + '</div>'
+  + '<div class="postId">' + post.id + '</div>'
   + '</div>';
 
   let messageList = document.querySelector(".message-list");
