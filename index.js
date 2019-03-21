@@ -20,6 +20,12 @@ function sendPostsList(request, response) {
   response.send(posts);
 }
 app.get('/posts', sendPostsList);
+app.get('/post', function (request, response) {
+   let searchId = request.query.id;
+   console.log("Searching for post " + searchId);
+   let post = posts.find(x => x.id == searchId);
+   response.send(post);
+});
 
 //let a client POST something new
 function saveNewPost(request, response) {
@@ -27,6 +33,7 @@ function saveNewPost(request, response) {
   console.log(request.body.url); //write it on the command prompt so we can see
   console.log(request.body.author);
   let post= {};
+  post.id = Math.round(Math.random() * 10000);
   post.message = request.body.message;
   post.url = request.body.url;
   post.author = request.body.author;
@@ -38,6 +45,10 @@ function saveNewPost(request, response) {
 //let a client POST an image
 
 app.post('/posts', saveNewPost);
+
+
+
+
 
 //listen for connections on port 3000
 app.listen(process.env.PORT || 3000);

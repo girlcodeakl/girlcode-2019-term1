@@ -54,3 +54,7 @@ form {
 .time {
 color: #f76559;
 }
+
+.postId {
+    display: none;
+}
