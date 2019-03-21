@@ -22,6 +22,8 @@
       function sendMessageToServer(e) {
         let data = {};
         data.message = document.querySelector(".messageInput").value;
+        data.url = document.querySelector(".url").value;
+        data.author = document.querySelector(".nameInput").value;
           e.preventDefault();
           fetch("/posts", {
             method:"POST",

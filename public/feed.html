@@ -28,7 +28,7 @@ function displayMessage(post) {
   + '<div class="message">' + post.message + "      " + '<img src=' + post.url +' > </div>'
   + '<div class="author">' + post.author + '</div>'
   + '<div class = "time">' + timeago.format(post.time) + '</div>'
-  + '</div>';
+  + '</div>'
 
   let messageList = document.querySelector(".message-list");
   messageList.innerHTML += postHTML;
