@@ -32,6 +32,27 @@ h1 {
   border: 2px solid #FFB03B;
   border-radius: 5px;
   color: #468966;
+  text: Helvetica;
+}
+.post img {
+  width: 300px;
+  margin: 0 auto;
+}
+
+input {    border-width: 3px;
+    border-style: inset;
+  }
+
+input {
+    padding: 5px 0px;
+    background-color:#ef4ace;
+}
+form {
+    display: block;
+    margin-top: 2em;
+}
+.time {
+color: #f76559;
 }
 
 .postId {
