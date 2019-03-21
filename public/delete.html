@@ -11,32 +11,31 @@
         <a href="post.html"> P O S T</a>
       </div>
       <div class="note"></div>
-      <form method="post" action="/posts">
-        <input class="messageInput" type="text" name="message" value="message goes here">
-        <input type="text" class="url" name="url" value="Show me dat url of snack!" >
-        <input class="nameInput" name="author" value="what's your name?">
+      <form method="post" >
+        <input class="IdInput" name="message" placeholder="ID Number">
+        <input class="passwordInput" name="message" placeholder="Password">
         <button class="postButton">Post it!</button>
       </form>
 
       <script>
       function sendMessageToServer(e) {
         let data = {};
-        data.message = document.querySelector(".messageInput").value;
-        data.url = document.querySelector(".url").value;
-        data.author = document.querySelector(".nameInput").value;
+        data.postId = document.querySelector(".IdInput").value;
+        data.password = document.querySelector(".passwordInput").value;
           e.preventDefault();
-          fetch("/posts", {
+          fetch("/delete", {
             method:"POST",
             body: JSON.stringify(data),
             headers: {'Content-Type': 'application/json'}
-
-            let postIdNumber = parseInt(request.body.postId);
-posts = posts.filter(post => post.id != postIdNumber);
           });
-       document.querySelector(".note").innerHTML = "Thanks! Your message was saved!";
+       document.querySelector(".note").innerHTML = "Deleting a message...";
 
       }
-
+      if (request.body.password === "1234") {
+       //things that happen if the password was correct
+      } else {
+        console.log("Wrong password");
+      }
       document.querySelector(".postButton").addEventListener("click", sendMessageToServer);
       </script>
 </body>

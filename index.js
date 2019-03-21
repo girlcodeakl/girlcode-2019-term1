@@ -26,8 +26,16 @@ app.get('/post', function (request, response) {
    let post = posts.find(x => x.id == searchId);
    response.send(post);
 });
-
-//let a client POST something new
+function deleteHandler(request, response) {
+console.log("client wants to delete this post: " + request.body.postId );
+let postIdNumber = parseInt(request.body.postId);
+posts = posts.filter(post => post.id != postIdNumber);
+databasePosts.deleteOne({ id : postIdNumber })
+}
+if (request.body.password === "1234") {
+ //things that happen if the password was correct
+} else {
+  console.log("Wrong password");
 function saveNewPost(request, response) {
   console.log(request.body.message);
   console.log(request.body.url); //write it on the command prompt so we can see
@@ -58,6 +66,7 @@ let MongoClient = require('mongodb').MongoClient;
 let databaseUrl = 'mongodb://girlcode:hats123@ds213896.mlab.com:13896/girlcode2019term1';
 let databaseName = 'girlcode2019term1';
 
+
 MongoClient.connect(databaseUrl, {useNewUrlParser: true}, function(err, client) {
   if (err) throw err;
   console.log("yay we connected to the database");
@@ -67,5 +76,8 @@ MongoClient.connect(databaseUrl, {useNewUrlParser: true}, function(err, client) 
     if (err) throw err;
     console.log("Found " + results.length + " results");
     posts = results
+
+
+
   });
 });
