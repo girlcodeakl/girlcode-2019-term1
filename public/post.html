@@ -10,10 +10,29 @@
         <a href="feed.html">F E E D</a>
         <a href="post.html"> P O S T</a>
       </div>
+      <div class="note"></div>
       <form method="post" action="/posts">
-          <input type="text" name="message" value="What's your #SOTD?" >
-          <input type="text" class="url" name="url" value="Show me dat url of snack!" >
-          <button>Post it!</button>
+        <input class="messageInput" type="text" name="message" value="message goes here">
+        <input type="text" class="url" name="url" value="Show me dat url of snack!" >
+        <input class="nameInput" name="author" value="what's your name?">
+        <button class="postButton">Post it!</button>
       </form>
-  </body>
+
+      <script>
+      function sendMessageToServer(e) {
+        let data = {};
+        data.message = document.querySelector(".messageInput").value;
+          e.preventDefault();
+          fetch("/posts", {
+            method:"POST",
+            body: JSON.stringify(data),
+            headers: {'Content-Type': 'application/json'}
+          });
+       document.querySelector(".note").innerHTML = "Thanks! Your message was saved!";
+
+      }
+
+      document.querySelector(".postButton").addEventListener("click", sendMessageToServer);
+      </script>
+</body>
 </html>
