@@ -35,15 +35,25 @@ function saveNewPost(request, response) {
   let post= {};
   post.id = Math.round(Math.random() * 10000);
   post.message = request.body.message;
+  if (post.message === "") {
+    post.message = "Oops! Did you wanna include a message?"
+  }
   post.url = request.body.url;
+
+   if (post.url === "") {
+     post.url = "https://www.nzonscreen.com/content/images/0027/9533/5722.KEY.jpg"
+   }
+
   post.author = request.body.author;
+  if (post.author === "") {
+    post.author = "New post, who Dis?"
+  }
   post.time = new Date;
   posts.push(post);
   response.send("thanks for your message. Press back to add another");
   databasePosts.insert(post);
 }
 //let a client POST an image
-
 app.post('/posts', saveNewPost);
 
 
