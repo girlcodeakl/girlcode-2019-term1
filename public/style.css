@@ -18,9 +18,10 @@ text-align: center;
 }
 .column {
   float: left;
-  width: 25%;
+  width: 30%;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+  height: 300px;
+  /* Should be removed. Only for demonstration */
 }
 
 /* Clear floats after the columns */
