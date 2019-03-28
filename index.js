@@ -29,15 +29,15 @@ app.get('/post', function (request, response) {
 
 //let a client POST something new
 function saveNewPost(request, response) {
-  console.log(request.body.message);
-  console.log(request.body.url); //write it on the command prompt so we can see
-  console.log(request.body.author);
+  console.log("request",request.body.flavour)
   let post= {};
   post.id = Math.round(Math.random() * 10000);
   post.message = request.body.message;
   post.url = request.body.url;
   post.author = request.body.author;
+  post.flavour = request.body.flavour;
   post.time = new Date;
+  console.log(post)
   posts.push(post);
   response.send("thanks for your message. Press back to add another");
   databasePosts.insert(post);
