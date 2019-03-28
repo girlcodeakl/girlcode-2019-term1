@@ -31,11 +31,14 @@ console.log("client wants to delete this post: " + request.body.postId );
 let postIdNumber = parseInt(request.body.postId);
 posts = posts.filter(post => post.id != postIdNumber);
 databasePosts.deleteOne({ id : postIdNumber })
-}
+
 if (request.body.password === "1234") {
  //things that happen if the password was correct
 } else {
   console.log("Wrong password");
+}}
+
+
 function saveNewPost(request, response) {
   console.log(request.body.message);
   console.log(request.body.url); //write it on the command prompt so we can see
