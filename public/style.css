@@ -50,8 +50,12 @@ h1 {
   text: Helvetica;
 }
 .post img {
+  border-radius: 40%;
   width: 300px;
   margin: 0 auto;
+}
+img {
+  border-radius: 40%;
 }
 
 input {    border-width: 3px;
