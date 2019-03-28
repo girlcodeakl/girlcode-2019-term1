@@ -19,6 +19,8 @@ a:-webkit-any-link {
 body {
   text-align: center;
   padding-top: 30px;
+  background-image: url("/BackgroundPlate.jpg");
+  background-size: cover;
 }
 
 .message-list {
@@ -45,18 +47,48 @@ h1 {
   margin: 0 auto;
 }
 
-input {    border-width: 3px;
-    border-style: none;
-  }
-
 input {
     padding: 5px 0px;
     background-color:#ffffff;
     box-shadow:5px 10px #0B3B3F;
+    border-width: 3px;
+    border-style: none;
+    text-align: center;
+    color: #143942;
+    font-style: italic;
 }
+
+p1 {
+  display: block;
+  margin-block-start: 3em;
+  margin-block-end: 3em;
+  margin-inline-start: 0px;
+  margin-inline-end: 300px;
+}
+
+p2 {
+  display: block;
+  margin-block-start: 3em;
+  margin-block-end: 3em;
+  margin-inline-start: 340px;
+}
+
+p3 {
+  display: block;
+  margin-block-start: 3em;
+  margin-block-end: 3em;
+  margin-inline-end: 170px;
+}
+
+p4 {
+  display: block;
+  margin-block-start: 10em;
+  margin-block-end: 3em;
+}
+
 form {
     display: block;
-    margin-top: 2em;
+    margin-top: 18em;
 }
 .time {
 color: #f76559;
@@ -64,4 +96,17 @@ color: #f76559;
 
 .postId {
     display: none;
+}
+
+.postButton {
+  border-radius: 12px;
+  border-color: #AA8638;
+  font-family: Verdana, sans-serif;
+  background-color: #AA8638;
+  color: #143942;
+  font-weight: bold;
+  box-shadow: none;
+  border-style: none;
+  height: 22px;
+  width: 70px;
 }
