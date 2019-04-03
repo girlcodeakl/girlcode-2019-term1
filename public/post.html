@@ -13,10 +13,18 @@
       </div>
       <div class="note"></div>
       <form method="post" action="/posts">
-        <input class="messageInput" type="text" name="message" placeholder="message goes here">
-        <input type="text" class="url" name="url" placeholder="Show me dat url of snack!" >
-        <input class="nameInput" name="author" placeholder="what's your name?">
-        <button class="postButton">Post it!</button>
+        <p1>
+          <input class="messageInput" type="text" name="message" placeholder="message goes here">
+        </p1>
+        <p2>
+          <input type="text" class="url" name="url" placeholder="Show me dat url of snack!" >
+        </p2>
+        <p3>
+          <input class="nameInput" name="author" placeholder="what's your name?">
+        </p3>
+        <p4>
+          <button class="postButton">Post it!</button>
+        </p4>
       </form>
     
       <script>
@@ -37,5 +45,7 @@
 
       document.querySelector(".postButton").addEventListener("click", sendMessageToServer);
       </script>
+
+
 </body>
 </html>
