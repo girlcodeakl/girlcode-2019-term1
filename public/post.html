@@ -23,8 +23,16 @@
           <input class="nameInput" name="author" placeholder="what's your name?">
         </p3>
         <p4>
-          <button class="postButton">Post it!</button>
+         <input type="radio" class="flavourInput" name="flavourprofile" value="Sweet">Sweet<br>
+        <input type="radio" class="flavourInput" name="flavourprofile" value="Savoury">Savoury<br>
+        <input type="radio" class="flavourInput" name="flavourprofile" value="Bitter">Bitter<br>
+        <input type="radio" class="flavourInput" name="flavourprofile" value="Sour">Sour<br>
+        <input type="radio" class="flavourInput" name="flavourprofile" value="Spicy">Spicy<br>
+        <input type="radio" class="flavourInput" name="flavourprofile" value="Umami">Umami<br>
         </p4>
+        <p5>
+          <button class="postButton">Post it!</button>
+        </p5>
       </form>
     
       <script>
@@ -33,6 +41,10 @@
         data.message = document.querySelector(".messageInput").value;
         data.url = document.querySelector(".url").value;
         data.author = document.querySelector(".nameInput").value;
+        data.flavour = document.querySelector('input[name="flavourprofile"]:checked').value;
+
+        console.log(data)
+
           e.preventDefault();
           fetch("/posts", {
             method:"POST",

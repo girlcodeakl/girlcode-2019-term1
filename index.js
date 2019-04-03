@@ -29,9 +29,6 @@ app.get('/post', function (request, response) {
 
 //let a client POST something new
 function saveNewPost(request, response) {
-  console.log(request.body.message);
-  console.log(request.body.url); //write it on the command prompt so we can see
-  console.log(request.body.author);
   let post= {};
   post.id = Math.round(Math.random() * 10000);
   post.message = request.body.message;
@@ -44,11 +41,13 @@ function saveNewPost(request, response) {
      post.url = "https://www.nzonscreen.com/content/images/0027/9533/5722.KEY.jpg"
    }
 
-  post.author = request.body.author;
-  if (post.author === "") {
+   if (post.author === "") {
     post.author = "New post, who Dis?"
   }
+
+  post.flavour = request.body.flavour;
   post.time = new Date;
+  console.log(post)
   posts.push(post);
   response.send("thanks for your message. Press back to add another");
   databasePosts.insert(post);
