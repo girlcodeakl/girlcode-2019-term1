@@ -29,12 +29,22 @@ app.get('/post', function (request, response) {
 
 //let a client POST something new
 function saveNewPost(request, response) {
-  console.log("request",request.body.flavour)
   let post= {};
   post.id = Math.round(Math.random() * 10000);
   post.message = request.body.message;
+  if (post.message === "") {
+    post.message = "Oops! Did you wanna include a message?"
+  }
   post.url = request.body.url;
-  post.author = request.body.author;
+
+   if (post.url === "") {
+     post.url = "https://www.nzonscreen.com/content/images/0027/9533/5722.KEY.jpg"
+   }
+
+   if (post.author === "") {
+    post.author = "New post, who Dis?"
+  }
+
   post.flavour = request.body.flavour;
   post.time = new Date;
   console.log(post)
@@ -43,7 +53,6 @@ function saveNewPost(request, response) {
   databasePosts.insert(post);
 }
 //let a client POST an image
-
 app.post('/posts', saveNewPost);
 
 
