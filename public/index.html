@@ -21,7 +21,7 @@
 //Hello! This is the start of the JavaScript.
 
 function displayMessage(post) {
-
+console.log(post.id);
   let postHTML =
   `<div class="post" class="row">
     <div class="row">
@@ -38,6 +38,7 @@ function displayMessage(post) {
         <h2>Author and time posted</h2>
         <p><div class="postauthor">${post.author}</div></p>
           <p><div class="time">${timeago.format(post.time)}</div></p>
+          <div class= "postId">${post.id}</div>
       </div>
   </div>`
 
