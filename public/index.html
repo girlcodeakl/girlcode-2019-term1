@@ -15,7 +15,11 @@
       </div>
     <h1 class="title"></h1>
     <div class="message-list"> </div>
-      </div>
+    <div class="row">
+      <div class="row">
+
+        </div>
+    </div>
 
     <script>
 //Hello! This is the start of the JavaScript.
@@ -26,17 +30,16 @@ console.log(post.id);
   `<div class="post" class="row">
     <div class="row">
       <div class="column" style="background-color:#aaa;">
-        <h2>Snack Message</h2>
+        <h2>Snack Breakdown</h2>
         <p><div class="postmessage">${post.message}</div></p>
          <p><div class="flavour">${post.flavour}</div></p>
       </div>
       <div class="column" style="background-color:#bbb;">
-        <h2>Snack Image</h2>
           <p><div class="message"><img src='${post.url}'></div></p>
           <button class="emojiButton">😍</button>
       </div>
       <div class="column" style="background-color:#ccc;">
-        <h2>Author and time posted</h2>
+        <h2>Snacker</h2>
         <p><div class="postauthor">${post.author}</div></p>
           <p><div class="time">${timeago.format(post.time)}</div></p>
           <div class= "postId">${post.id}</div>
