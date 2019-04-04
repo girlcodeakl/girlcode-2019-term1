@@ -41,15 +41,18 @@ if (request.body.password === "1234") {
 app.post('/delete', deleteHandler);
 
 function saveNewPost(request, response) {
-  console.log(request.body.message);
-  console.log(request.body.url); //write it on the command prompt so we can see
-  console.log(request.body.author);
   let post= {};
   post.id = Math.round(Math.random() * 10000);
   post.message = request.body.message;
   post.url = request.body.url;
   post.author = request.body.author;
+   if (post.author === "") {
+    post.author = "New post, who Dis?"
+  }
+
+  post.flavour = request.body.flavour;
   post.time = new Date;
+  console.log(post)
   posts.push(post);
   response.send("thanks for your message. Press back to add another");
   databasePosts.insert(post);
@@ -58,9 +61,31 @@ function saveNewPost(request, response) {
 
 app.post('/posts', saveNewPost);
 
+//pick and return a random element from the given list
+function pickRandomFrom(list) {
+  return list[Math.floor(Math.random()*list.length)];
+};
 
+//give the client a random post
+function getRandomPost(request, response) {
+  let randomPost = pickRandomFrom(posts);
+  response.send(randomPost);
+};
 
+app.get('/random', getRandomPost);
 
+//pick and return a random element from the given list
+function pickRandomFrom(list) {
+  return list[Math.floor(Math.random()*list.length)];
+};
+
+//give the client a random post
+function getRandomPost(request, response) {
+  let randomPost = pickRandomFrom(posts);
+  response.send(randomPost);
+};
+
+app.get('/random', getRandomPost);
 
 //listen for connections on port 3000
 app.listen(process.env.PORT || 3000);
