@@ -52,6 +52,7 @@ function saveNewPost(request, response) {
 
   post.flavour = request.body.flavour;
   post.time = new Date;
+  
   console.log(post)
   posts.push(post);
   response.send("thanks for your message. Press back to add another");
