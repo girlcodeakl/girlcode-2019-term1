@@ -130,3 +130,13 @@ color: #f76559;
   height: 22px;
   width: 70px;
 }
+
+button {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
