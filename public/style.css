@@ -59,8 +59,9 @@ h1 {
   font-style: italic;
 }
 .post img {
-  border-radius: 40%;
-  width: 300px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
   margin: 0 auto;
 }
 img {
