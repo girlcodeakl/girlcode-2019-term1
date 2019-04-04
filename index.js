@@ -26,39 +26,66 @@ app.get('/post', function (request, response) {
    let post = posts.find(x => x.id == searchId);
    response.send(post);
 });
+function deleteHandler(request, response) {
 
-//let a client POST something new
+if (request.body.password === "1234") {
+  console.log("client wants to delete this post: " + request.body.postId );
+  let postIdNumber = parseInt(request.body.postId);
+  posts = posts.filter(post => post.id != postIdNumber);
+  databasePosts.deleteOne({ id : postIdNumber })
+} else {
+  console.log("Wrong password");
+}
+}
+app.post("/delete", deleteHandler);
+
+
 function saveNewPost(request, response) {
-  console.log(request.body.message);
-  console.log(request.body.url); //write it on the command prompt so we can see
-  console.log(request.body.author);
   let post= {};
   post.id = Math.round(Math.random() * 10000);
   post.message = request.body.message;
-  if (post.message === "") {
-    post.message = "Oops! Did you wanna include a message?"
-  }
   post.url = request.body.url;
-
-   if (post.url === "") {
-     post.url = "https://www.nzonscreen.com/content/images/0027/9533/5722.KEY.jpg"
-   }
-
   post.author = request.body.author;
-  if (post.author === "") {
+   if (post.author === "") {
     post.author = "New post, who Dis?"
   }
+
+  post.flavour = request.body.flavour;
   post.time = new Date;
+  console.log(post)
   posts.push(post);
   response.send("thanks for your message. Press back to add another");
   databasePosts.insert(post);
 }
 //let a client POST an image
+
 app.post('/posts', saveNewPost);
 
+//pick and return a random element from the given list
+function pickRandomFrom(list) {
+  return list[Math.floor(Math.random()*list.length)];
+};
 
+//give the client a random post
+function getRandomPost(request, response) {
+  let randomPost = pickRandomFrom(posts);
+  response.send(randomPost);
+};
 
+app.get('/random', getRandomPost);
 
+//pick and return a random element from the given list
+function pickRandomFrom(list) {
+  return list[Math.floor(Math.random()*list.length)];
+};
+
+//give the client a random post
+function getRandomPost(request, response) {
+  let randomPost = pickRandomFrom(posts);
+  response.send(randomPost);
+};
+
+app.get('/random', getRandomPost);
 
 //listen for connections on port 3000
 app.listen(process.env.PORT || 3000);
@@ -67,6 +94,7 @@ console.log("Hi! I am listening at http://localhost:3000");
 let MongoClient = require('mongodb').MongoClient;
 let databaseUrl = 'mongodb://girlcode:hats123@ds213896.mlab.com:13896/girlcode2019term1';
 let databaseName = 'girlcode2019term1';
+
 
 MongoClient.connect(databaseUrl, {useNewUrlParser: true}, function(err, client) {
   if (err) throw err;
@@ -77,5 +105,8 @@ MongoClient.connect(databaseUrl, {useNewUrlParser: true}, function(err, client) 
     if (err) throw err;
     console.log("Found " + results.length + " results");
     posts = results
+
+
+
   });
 });

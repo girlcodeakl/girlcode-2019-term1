@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/timeago.min.js"></script>
+    <title>Message Feed</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="navbar">
+        <a href="index.html">H O M E</a>
+        <a href="feed.html">F E E D</a>
+        <a href="post.html"> P O S T</a>
+      </div>
+    <h1 class="title">Message Feed</h1>
+    <div class="message-list"> </div>
+    <div class="row">
+      <div class="row">
+        <div class="column" style="background-color:#aaa;">
+          <h2>Column 1</h2>
+          <p>Some text..</p>
+        </div>
+        <div class="column" style="background-color:#bbb;">
+          <h2>Column 2</h2>
+          <p>Some text..</p>
+        </div>
+        <div class="column" style="background-color:#ccc;">
+          <h2>Column 3</h2>
+          <p>Some text..</p>
+        </div>
+    </div>
+
+    <script>
+//Hello! This is the start of the JavaScript.
+
+function displayMessage(post) {
+
+  let postHTML =
+  `<div class="post" class="row">
+    <div class="row">
+      <div class="column" style="background-color:#aaa;">
+        <h2>Snack Message</h2>
+        <p><div class="postmessage">${post.message}</div></p>
+         <p><div class="flavour">${post.flavour}</div></p>
+      </div>
+      <div class="column" style="background-color:#bbb;">
+        <h2>Snack Image</h2>
+          <p><div class="message"><img src='${post.url}'></div></p>
+      </div>
+      <div class="column" style="background-color:#ccc;">
+        <h2>Author and time posted</h2>
+        <p><div class="postauthor">${post.author}</div></p>
+          <p><div class="time">${timeago.format(post.time)}</div></p>
+      </div>
+  </div>`
+
+  let messageList = document.querySelector(".message-list");
+  messageList.innerHTML += postHTML;
+}
+
+function createFeed(posts) {
+  posts.reverse();
+  posts.forEach(displayMessage);
+
+}
+
+fetch("/posts")
+  .then(response => response.json())
+  .then(createFeed);
+
+//This is the end of the JavaScript.
+    </script
+  </body>
+</html>

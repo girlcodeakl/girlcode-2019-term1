@@ -11,10 +11,26 @@
       </div>
       <div class="note"></div>
       <form method="post" action="/posts">
-        <input class="messageInput" type="text" name="message" value="message goes here">
-        <input type="text" class="url" name="url" value="Show me dat url of snack!" >
-        <input class="nameInput" name="author" value="what's your name?">
-        <button class="postButton">Post it!</button>
+        <p1>
+          <input class="messageInput" type="text" name="message" placeholder="message goes here">
+        </p1>
+        <p2>
+          <input type="text" class="url" name="url" placeholder="Show me dat url of snack!" >
+        </p2>
+        <p3>
+          <input class="nameInput" name="author" placeholder="what's your name?">
+        </p3>
+        <p4>
+         <input type="radio" class="flavourInput" name="flavourprofile" value="Sweet">Sweet<br>
+        <input type="radio" class="flavourInput" name="flavourprofile" value="Savoury">Savoury<br>
+        <input type="radio" class="flavourInput" name="flavourprofile" value="Bitter">Bitter<br>
+        <input type="radio" class="flavourInput" name="flavourprofile" value="Sour">Sour<br>
+        <input type="radio" class="flavourInput" name="flavourprofile" value="Spicy">Spicy<br>
+        <input type="radio" class="flavourInput" name="flavourprofile" value="Umami">Umami<br>
+        </p4>
+        <p5>
+          <button class="postButton">Post it!</button>
+        </p5>
       </form>
 
       <script>
@@ -23,6 +39,10 @@
         data.message = document.querySelector(".messageInput").value;
         data.url = document.querySelector(".url").value;
         data.author = document.querySelector(".nameInput").value;
+        data.flavour = document.querySelector('input[name="flavourprofile"]:checked').value;
+
+        console.log(data)
+
           e.preventDefault();
           fetch("/posts", {
             method:"POST",
@@ -37,5 +57,7 @@
 
       document.querySelector(".postButton").addEventListener("click", sendMessageToServer);
       </script>
+
+
 </body>
 </html>
