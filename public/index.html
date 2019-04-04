@@ -33,6 +33,7 @@ console.log(post.id);
       <div class="column" style="background-color:#bbb;">
         <h2>Snack Image</h2>
           <p><div class="message"><img src='${post.url}'></div></p>
+          <button class="emojiButton">😍</button>
       </div>
       <div class="column" style="background-color:#ccc;">
         <h2>Author and time posted</h2>
@@ -56,6 +57,19 @@ fetch("/posts")
   .then(response => response.json())
   .then(createFeed);
 
+  function messageListClick(e) {
+    if (e.target.classList.contains("emojiButton")) {
+      console.log("button clicked!")
+      let postIdElement = e.target.parentNode.querySelector(".postId");
+      let postId = postIdElement.innerHTML;
+      console.log("You chose post " + postId + ", answer " + answerNumber);
+    } else {
+      console.log("something else was clicked")
+    }
+  }
+
+  let messageList = document.querySelector(".message-list");
+  messageList.addEventListener("click", messageListClick);
 //This is the end of the JavaScript.
     </script
   </body>
