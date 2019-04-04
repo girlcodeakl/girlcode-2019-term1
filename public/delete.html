@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="navbar">
-        <a href="index.html">H O M E</a>
-        <a href="feed.html">F E E D</a>
-        <a href="post.html"> P O S T</a>
-      </div>
-      <div class="note"></div>
-      <form method="post" >
-        <input class="IdInput" name="message" placeholder="ID Number">
-        <input class="passwordInput" name="message" placeholder="Password">
-        <button class="postButton">Post it!</button>
-      </form>
 
-      <script>
-      function sendMessageToServer(e) {
-        let data = {};
-        data.postId = document.querySelector(".IdInput").value;
-        data.password = document.querySelector(".passwordInput").value;
-          e.preventDefault();
-          fetch("/delete", {
-            method:"POST",
-            body: JSON.stringify(data),
-            headers: {'Content-Type': 'application/json'}
-          });
-       document.querySelector(".note").innerHTML = "Deleting a message...";
+<head>
+  <meta charset='utf-8'>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="navbar">
+    <a href="index.html">H O M E</a>
+    <a href="feed.html">F E E D</a>
+    <a href="post.html"> P O S T</a>
+  </div>
+  <div class="note"></div>
+  <form method="post">
+    <input class="IdInput" name="message" placeholder="ID Number">
+    <input class="passwordInput" name="message" placeholder="Password">
+    <button class="postButton">Post it!</button>
+  </form>
+
+  <script>
+    function sendMessageToServer(e) {
+      let data = {};
+      data.postId = document.querySelector(".IdInput").value;
+      data.password = document.querySelector(".passwordInput").value;
+      e.preventDefault();
+      fetch("/delete", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+      });
 
 
-      document.querySelector(".postButton").addEventListener("click", sendMessageToServer);
-      </script>
+      document.querySelector(".note").innerHTML = "Deleting a message...";
+    }
+
+    document.querySelector(".postButton").addEventListener("click", sendMessageToServer);
+  </script>
 </body>
+
 </html>
