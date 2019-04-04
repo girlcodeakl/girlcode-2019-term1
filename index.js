@@ -26,19 +26,19 @@ app.get('/post', function (request, response) {
    let post = posts.find(x => x.id == searchId);
    response.send(post);
 });
-function deleteHandler(request, response) {
 
+function deleteHandler(request, response) {
+console.log("client wants to delete this post: " + request.body.postId );
 if (request.body.password === "1234") {
-  console.log("client wants to delete this post: " + request.body.postId );
+  //things that happen if the password was correct
   let postIdNumber = parseInt(request.body.postId);
   posts = posts.filter(post => post.id != postIdNumber);
   databasePosts.deleteOne({ id : postIdNumber })
-} else {
-  console.log("Wrong password");
+ } else {
+   console.log("Wrong password");
+ }
 }
-}
-app.post("/delete", deleteHandler);
-
+app.post('/delete', deleteHandler);
 
 function saveNewPost(request, response) {
   let post= {};

@@ -49,10 +49,10 @@
             body: JSON.stringify(data),
             headers: {'Content-Type': 'application/json'}
 
-
+            let postIdNumber = parseInt(request.body.postId);
+            posts = posts.filter(post => post.id != postIdNumber);
           });
        document.querySelector(".note").innerHTML = "Thanks! Your message was saved!";
-
       }
 
       document.querySelector(".postButton").addEventListener("click", sendMessageToServer);
