@@ -45,7 +45,7 @@ body {
 }
 
 h1 {
-  color: #d6c61b;
+  color: #800000;
   font: Verdana;
 }
 
@@ -130,8 +130,20 @@ color: #f76559;
   font-weight: bold;
   box-shadow: none;
   border-style: none;
-  height: 22px;
-  width: 70px;
+  height: 40px;
+  width: 100px;
+  cursor: pointer;
+}
+
+button {
+    background-color: white;
+    color: black;
+    border: 2px solid #C0C0C0;
+    cursor: pointer;
+}
+button:hover {
+  background-color: #C0C0C0;
+  color: white;
 }
 
 .emojiButton {
