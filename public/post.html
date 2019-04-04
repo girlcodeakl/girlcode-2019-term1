@@ -6,10 +6,8 @@
   </head>
   <body>
     <div class="navbar">
-        <a href="index.html">H O M E</a>
-        <a href="feed.html">F E E D</a>
+        <a href="index.html">F E E D</a>
         <a href="post.html"> P O S T</a>
-
       </div>
       <div class="note"></div>
       <form method="post" action="/posts">
@@ -34,7 +32,7 @@
           <button class="postButton">Post it!</button>
         </p5>
       </form>
-    
+
       <script>
       function sendMessageToServer(e) {
         let data = {};
@@ -50,6 +48,8 @@
             method:"POST",
             body: JSON.stringify(data),
             headers: {'Content-Type': 'application/json'}
+
+
           });
        document.querySelector(".note").innerHTML = "Thanks! Your message was saved!";
 
