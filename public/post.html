@@ -6,8 +6,9 @@
   </head>
   <body>
     <div class="navbar">
-        <a href="index.html">F E E D</a>
-        <a href="post.html"> P O S T</a>
+      <a href="index.html">SNACK  FEED</a>
+      <a href="random.html">RANDOM  SNACK</a>
+      <a href="post.html">POST  SNACK</a>
       </div>
       <div class="note"></div>
       <form method="post" action="/posts">
@@ -48,9 +49,6 @@
             method:"POST",
             body: JSON.stringify(data),
             headers: {'Content-Type': 'application/json'}
-
-            let postIdNumber = parseInt(request.body.postId);
-            posts = posts.filter(post => post.id != postIdNumber);
           });
        document.querySelector(".note").innerHTML = "Thanks! Your message was saved!";
       }
