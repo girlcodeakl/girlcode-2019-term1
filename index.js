@@ -41,6 +41,7 @@ function saveNewPost(request, response) {
      post.url = "https://www.nzonscreen.com/content/images/0027/9533/5722.KEY.jpg"
    }
 
+  post.author = request.body.author;
    if (post.author === "") {
     post.author = "New post, who Dis?"
   }

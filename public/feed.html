@@ -37,21 +37,21 @@
 function displayMessage(post) {
 
   let postHTML =
-  `<div class="row">
+  `<div class="post" class="row">
     <div class="row">
       <div class="column" style="background-color:#aaa;">
         <h2>Snack Message</h2>
-        <p>Some text..  <div class="postmessage">${post.message}</div></p>
+        <p><div class="postmessage">${post.message}</div></p>
          <p><div class="flavour">${post.flavour}</div></p>
       </div>
       <div class="column" style="background-color:#bbb;">
         <h2>Snack Image</h2>
-          <p>Some text..  <div class="message"><img src='${post.url}'></div></p>
+          <p><div class="message"><img src='${post.url}'></div></p>
       </div>
       <div class="column" style="background-color:#ccc;">
         <h2>Author and time posted</h2>
-        <p>Some text..  <div class="postauthor">${post.author}</div></p>
-          <p>Some text..  <div class="time">${timeago.format(post.time)}</div></p>
+        <p><div class="postauthor">${post.author}</div></p>
+          <p><div class="time">${timeago.format(post.time)}</div></p>
       </div>
   </div>`
 
