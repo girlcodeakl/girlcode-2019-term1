@@ -65,6 +65,8 @@ h1 {
 }
 img {
   border-radius: 40%;
+  width: 40px;
+  height: 180px;
 }
 
 input {
@@ -129,4 +131,8 @@ color: #f76559;
   border-style: none;
   height: 22px;
   width: 70px;
+}
+
+.emojiButton {
+  border-radius: 50%;
 }
